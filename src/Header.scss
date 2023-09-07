@@ -1,0 +1,144 @@
+@import "./variables";
+
+.header {
+  padding-top: 3.125rem;
+  overflow: hidden;
+  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .bg-tablet {
+    position: absolute;
+    right: -20%;
+    top: -20%;
+    z-index: -1;
+
+    @media screen and (max-width: 48rem) {
+      width: 31.25rem;
+      right: -20%;
+      top: -10%;
+    }
+
+    @media screen and (max-width: 36rem) {
+      width: 21.875rem;
+    }
+  }
+
+  .wrapper {
+    justify-content: space-between;
+
+    .header__navigation {
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 1.875rem;
+
+        @media screen and (max-width: 75rem) {
+          gap: 0.9375rem;
+        }
+
+        @media screen and (max-width: 48rem) {
+          position: absolute;
+          top: 12.5%;
+          left: 10%;
+          width: 80%;
+          background: $very-light-gray;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.875rem;
+          padding: 3.125rem 0;
+          border-radius: 0.3125rem;
+
+          -webkit-box-shadow: 0rem 0rem 0.3125rem 0rem $very-dark-blue;
+          -moz-box-shadow: 0rem 0rem 0.3125rem 0rem $very-dark-blue;
+          box-shadow: 0rem 0rem 0.3125rem 0rem $very-dark-blue;
+
+          display: none;
+        }
+
+        a {
+          color: $dark-blue;
+          font-weight: 500;
+
+          @media screen and (max-width: 75rem) {
+            font-size: 0.875rem;
+          }
+
+          @media screen and (max-width: 48rem) {
+            font-size: 1.125rem;
+          }
+
+          &:hover {
+            color: $dark-grayish-blue;
+          }
+        }
+
+        &.show {
+          display: flex;
+        }
+      }
+    }
+
+    .main-cta-btn {
+      @media screen and (max-width: 62rem) {
+        display: none;
+      }
+    }
+
+    .header__hamburger {
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: none;
+      border: none;
+
+      display: none;
+
+      @media screen and (max-width: 48rem) {
+        display: block;
+      }
+
+      .header__top,
+      .header__middle,
+      .header__bottom {
+        position: absolute;
+        width: 1.25rem;
+        height: 0.125rem;
+        top: 0;
+        left: 0;
+        background: $very-dark-blue;
+        transition: all 0.5s;
+      }
+
+      .header__middle {
+        transform: translateY(0.3125rem);
+      }
+
+      .header__bottom {
+        transform: translateY(0.625rem);
+      }
+
+      &.open {
+        transform: rotate(90deg);
+
+        .header__top {
+          transform: rotate(45deg) translateY(0.375rem) translateX(0.375rem);
+        }
+
+        .header__middle {
+          display: none;
+        }
+
+        .header__bottom {
+          transform: rotate(-45deg) translateY(0.375rem) translateX(-0.375rem);
+        }
+      }
+    }
+  }
+}

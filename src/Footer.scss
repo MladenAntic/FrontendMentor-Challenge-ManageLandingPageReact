@@ -1,0 +1,151 @@
+@import "./variables";
+
+.footer {
+  background: $very-dark-blue;
+  padding: 3.125rem 0;
+
+  .wrapper {
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+
+    @media screen and (max-width: 62rem) {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.875rem;
+    }
+
+    .footer__social {
+      @media screen and (max-width: 62rem) {
+        position: relative;
+        height: 6.25rem;
+        margin-top: 1.875rem;
+      }
+
+      .footer__icons {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.9375rem;
+
+        @media screen and (max-width: 62rem) {
+          left: 50%;
+          transform: translateX(-50%);
+          gap: 1.875rem;
+        }
+
+        i {
+          font-size: 1.5rem;
+          color: $very-light-gray;
+          transition: 0.2s;
+
+          &:hover {
+            color: $bright-red;
+          }
+
+          @media screen and (max-width: 62rem) {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9375rem;
+
+      a {
+        color: $very-light-gray;
+        transition: 0.2s;
+
+        &:hover {
+          color: $bright-red;
+        }
+
+        @media screen and (max-width: 75rem) {
+          font-size: 0.875rem;
+        }
+      }
+    }
+
+    .footer__newsletter {
+      form {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        position: relative;
+        padding-bottom: 1.875rem;
+
+        @media screen and (max-width: 36rem) {
+          flex-direction: column;
+        }
+
+        .email {
+          border: none;
+          outline: none;
+          padding: 0.9375rem;
+          border-radius: 3.125rem;
+
+          &.valid {
+            outline: none;
+          }
+
+          &.error {
+            outline: 2px solid hsl(0, 94%, 66%);
+          }
+        }
+
+        .submit {
+          border: none;
+          outline: none;
+          background: $bright-red;
+          color: $very-light-gray;
+          padding: 0.9375rem 1.5625rem;
+          border-radius: 3.125rem;
+          cursor: pointer;
+
+          &:hover {
+            background: hsl(12, 88%, 79%);
+          }
+
+          @media screen and (max-width: 36rem) {
+            width: 100%;
+          }
+        }
+
+        .footer__error {
+          position: absolute;
+          bottom: 0;
+          left: 5%;
+          color: red;
+          font-style: italic;
+          font-weight: 500;
+
+          display: none;
+
+          &.show {
+            display: block;
+          }
+        }
+      }
+
+      .footer__copyright {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        color: $dark-grayish-blue;
+        font-size: 0.875rem;
+
+        @media screen and (max-width: 62rem) {
+          display: none;
+        }
+      }
+    }
+  }
+}
